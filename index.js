@@ -99,9 +99,23 @@ console.log(`Gorev 4: ${Kazananlar(fifaData, Finaller)}`);
 	💡 İPUCU: her cümlenin adım 4'te belirtilen cümleyle birebir aynı olması gerekmektedir.
 */
 
-function YillaraGoreKazananlar(/* kodlar buraya */) {
-  /* kodlar buraya */
+function YillaraGoreKazananlar(arrData, functFinal, functYillar, functUlke) {
+  const kazananlar = functFinal(arrData);
+
+  const winnerList = kazananlar.map((winner) => {
+    return `${functYillar} yılında, ${functUlke} dünya kupasını kazandı!`;
+  });
+  return winnerList;
 }
+
+console.log(
+  `Gorev 5: Yillara gore kazananlar ${YillaraGoreKazananlar(
+    fifaData,
+    Finaller,
+    Yillar,
+    Kazananlar
+  )}`
+);
 
 /*  Görev 6: 
 	Bir higher order fonksiyonu olan `OrtalamaGolSayisi` isimli fonksiyona aşağıdakileri uygulayın: 
