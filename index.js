@@ -72,9 +72,21 @@ console.log(`Gorev 3: Final Yillari: ${Yillar(fifaData, Finaller)}`);
 	💡 İPUCU: Beraberlikler(ties) için şimdilik endişelenmeyin (Detaylı bilgi için README dosyasına bakabilirsiniz.)
 	4. Tüm kazanan ülkelerin isimlerini içeren `kazananlar` adında bir dizi(array) döndürecek(return)  */
 
-function Kazananlar(/* kodlar buraya */) {
-  /* kodlar buraya */
+function Kazananlar(arrData, callbackFunct) {
+  const finalArr = callbackFunct(arrData);
+
+  const Winner = function (final) {
+    if (final["Home Team Goals"] > final["Away Team Goals"]) {
+      return final["Home Team Name"];
+    } else {
+      return final["Away Team Name"];
+    }
+  };
+  const Kazananlar = finalArr.map(Winner);
+  return Kazananlar;
 }
+
+console.log(`Gorev 4: ${Kazananlar(fifaData, Finaller)}`);
 
 /*  Görev 5: 
 	Bir higher-order fonksiyonu olan YillaraGoreKazananlar isimli fonksiyona aşağıdakileri uygulayın:
